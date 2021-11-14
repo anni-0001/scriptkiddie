@@ -21,6 +21,8 @@ def main():
 
     # cron_write('crontab_logger.txt')
     basic_write_to_file('/home/anni/projects/scriptkiddie/crontab_logger.txt')
+    # cron_write('/home/anni/projects/scriptkiddie/crontab_logger.txt')
+
 
 
 
