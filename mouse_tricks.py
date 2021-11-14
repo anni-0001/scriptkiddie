@@ -1,4 +1,5 @@
 import pyautogui
+import time
 
 
 auto = pyautogui
@@ -30,31 +31,71 @@ def print_mouse_coords():
     except KeyboardInterrupt:
         print('\ndone')
     
-# dragging mouse
-def click_mouse(x, y):
+# dragging mouse -- not working
+def click_mouse():
+
+    time.sleep(5)
+    auto.click()
+
 
     
-    pyautogui.move(x, y, duration = .5)
-    pyautogui.click(10,5)
+    # pyautogui.move(x, y, duration = .5)
+    # pyautogui.click(10,5)
     
-    
+
+# makes an alert box, makes a password log-in alert box, takes screenshots 
 def display_message():
     # pyautogui.alert('This is an alert')
     # pyautogui.confirm(text = 'Hi butthole', title='', buttons=['yes', 'no'])
+
     # auto.password(text = '', default = 'abcdefg', mask = '*')
-    img1 = auto.screenshot()
-    img2 = auto.screenshot('img123.jpg')
+
+    # img1 = auto.screenshot()
+    # img2 = auto.screenshot('img123.jpg')
+
+    auto.sleep(5)
+
+# not working yet
+# should locate an image on screen based off the image provided in strawberry var
+def locate_on_screen():
+    # print_mouse_coords()
+    time.sleep(5)
+    strawberry = auto.locateOnScreen('simple_strawberry.png', confidence= .2)
+    print(strawberry)
+    return strawberry
+    
+    # if strawberry == None:
+    #     print('not found')
+    # else:
+    #     # print(strawberry)
+    #     print(strawberry)
+    #     # print('hi') 
+    #     # auto.click(x,y)
 
     
-
+def pixel_matching():
+    img = auto.pixel(100, 200)
+    print(img)
 
 
 
 def main():
     # basic_mouse_movement(10, 10, 40)
     # print_mouse_coords()
-    # click_mouse(400, 300)
-    display_message()
+
+
+    # click_mouse()
+
+
+
+    # print(display_message())
+
+
+
+    locate_on_screen() # returns the same val everytime- not working
+
+    # pixel_matching()
+
 
 
 main()
