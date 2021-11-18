@@ -18,7 +18,7 @@ def rit_web_order_button():
         print(f'I found it...{x} by {y}')
     except TypeError:
         print('did not work, sorry anni')
-        return 
+        # return 
 
     pyautogui.click(x, y)
     print('just clicked!')
@@ -40,7 +40,7 @@ def click_shopping_cart():
 def main():
     rit_web_order_button()
     time.sleep(12)
-    # click_shopping_cart()
+    click_shopping_cart()
 
 
     
