@@ -21,7 +21,7 @@ def close_wireshark_page(x, y):
     pyautogui.moveTo(x,y)
     # pyautogui.hotkey('alt', 'shift', 'q')
 
-    pyautogui.confirm(text = 'SUCKER', title ='BUTTHOLE', buttons= ['stupid', 'nice'])
+    pyautogui.confirm(text = 'NO WIRESHARK', title ='doesnt show up', buttons= ['yes', 'yes'])
     # make a hard math problem in the password function they have to solve to exit
     
     

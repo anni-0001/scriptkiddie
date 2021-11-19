@@ -4,6 +4,7 @@
 import socket
 import sys
 import re
+import print_
 
 
 IP_ADDRESS = '192.168.84.137'
@@ -44,6 +45,8 @@ def connection(uname, password):
 
     return response
 
+
+
 # static for my vm
 uname = 'abc'
 
@@ -55,6 +58,7 @@ for password in passwords:
     print('Trying ...')
 
     attempt = connection(uname, password)
+    # print_('...')
     # print(attempt)
     if attempt==b'230':
         print('[*] Congrats, password is:' + password)
